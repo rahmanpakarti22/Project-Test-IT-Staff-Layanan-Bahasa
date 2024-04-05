@@ -17,6 +17,8 @@
     <div class="pb-3">
         <a href='{{ url('home/create')}}' class="btn btn-primary">+ Tambah Data</a>
     </div>
+    
+    @if($data && $data->count() > 0)
     <table class="table table-striped">
         <thead>
             <tr>
@@ -43,8 +45,23 @@
             </tr>  
             @endforeach  
         </tbody>
-    </table> 
+    </table>
     {{$data->links()}}   
+    @else
+    <p>Data tidak ditemukan.</p>
+    @endif
 </div>
+
+<script>
+    let Session = {
+        set: function(key, value) {
+            sessionStorage.setItem(key, value);
+        },
+        get: function(key, defaultValue) {
+            return sessionStorage.getItem(key) || defaultValue;
+        }
+    };
+</script>
+
     
 @endsection
