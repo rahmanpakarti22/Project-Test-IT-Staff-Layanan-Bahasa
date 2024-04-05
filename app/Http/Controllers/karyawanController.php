@@ -105,6 +105,6 @@ class karyawanController extends Controller
     public function destroy(string $id)
     {
         karyawan::where('nip', $id)->delete();
-        return redirect()->to('home')->with('Berhasil', 'Berhasil mengubah data karyawan');
+        return redirect()->to('home')->with('Berhasil', 'Berhasil menghapus data karyawan');
     }
 }
